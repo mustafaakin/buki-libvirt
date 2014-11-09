@@ -20,8 +20,6 @@ public class Tester {
 			// System.out.println(s);
 		}
 
-
-		
 		String[] networks = conn.listNetworks();
 		for (String network : networks) {
 			Network s = conn.networkLookupByName(network);
@@ -31,12 +29,8 @@ public class Tester {
 			Serializer serializer = new Persister();
 			buki.libvirt.network.Network n = serializer.read(
 					buki.libvirt.network.Network.class, xml);
-			
 
 		}
 
-		
-		
-		
 	}
 }
