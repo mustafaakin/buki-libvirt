@@ -4,14 +4,11 @@ import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
-@Root(strict=false)
-public class Forward {
+@Root(strict = false)
+public class Protocol {
 	@Attribute
-	public String mode;
+	String family;
 
-	@Attribute(required=false)
-	public String dev;
-	
-	@Element(required=false)
-	public NAT nat;
+	@Element
+	IP ip;
 }

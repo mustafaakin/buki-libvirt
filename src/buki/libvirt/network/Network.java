@@ -33,17 +33,20 @@ public class Network {
 	public List<IP> ip = new ArrayList<IP>();
 	
 	
+	public boolean active;
+	
 	public Network(){
 		
 	}
 	
-	public Network(String name, String bridgeName, String gateway, String netmask, String rangeStart, String rangeEnd){
+	public Network(String name, String dev, String bridgeName, String gateway, String netmask, String rangeStart, String rangeEnd){
 		this.name = name;
 		this.bridge = new Bridge();
 		this.bridge.name = name;
 		
 		this.forward = new Forward();
-		this.forward.mode = "nat";
+		this.forward.mode = "route";
+		this.forward.dev = dev;
 				
 		IP ip = new IP();
 		ip.dhcp = new DHCP();
