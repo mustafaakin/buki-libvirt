@@ -29,4 +29,6 @@ public class Domain {
 
 	@Element
 	public Devices devices = new Devices();
+	
+	public boolean isActive;
 }

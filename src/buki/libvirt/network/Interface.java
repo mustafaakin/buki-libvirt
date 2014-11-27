@@ -22,4 +22,5 @@ public class Interface {
 	@ElementList(inline = true, required=false)
 	public List<Protocol> protocol = new ArrayList<Protocol>();
 	
+	public boolean isActive;
 }

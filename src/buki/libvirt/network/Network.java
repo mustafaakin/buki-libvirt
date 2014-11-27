@@ -33,7 +33,7 @@ public class Network {
 	public List<IP> ip = new ArrayList<IP>();
 	
 	
-	public boolean active;
+	public boolean isActive;
 	
 	public Network(){
 		
