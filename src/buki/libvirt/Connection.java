@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.libvirt.Connect;
 import org.libvirt.LibvirtException;
+import org.libvirt.NodeInfo;
 
 import buki.libvirt.domain.Domain;
 import buki.libvirt.network.Interface;
@@ -40,7 +41,8 @@ public class Connection {
 	public List<Network> getNetworks(boolean isActive) {
 		ArrayList<Network> networks = new ArrayList<>();
 		try {
-			String names[] = isActive ? libvirtConn.listNetworks() : libvirtConn.listDefinedNetworks();
+			String names[] = isActive ? libvirtConn.listNetworks()
+					: libvirtConn.listDefinedNetworks();
 			for (String name : names) {
 				org.libvirt.Network nn = libvirtConn.networkLookupByName(name);
 				Network newNetwork = Utils.fromXML(nn.getXMLDesc(0),
@@ -103,6 +105,15 @@ public class Connection {
 			return null;
 		}
 		return domains;
+	}
+
+	public NodeInfo getNodeInfo() {
+		try {
+			return libvirtConn.nodeInfo();
+		} catch (LibvirtException ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 
 }
